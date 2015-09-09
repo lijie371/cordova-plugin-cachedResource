@@ -1,8 +1,7 @@
-package com.ataw.cordova.remap;
+package com.ataw.cordova.plugin;
 
 import org.apache.cordova.CordovaPlugin;
 import android.net.Uri;
-import android.os.Environment;
 
 import java.io.File;
 import java.lang.Override;
@@ -11,11 +10,18 @@ public class RemapPlugin extends CordovaPlugin {
     @Override
     public Uri remapUri(Uri uri) {
         String path = uri.getPath();
-        File basePath = Environment.getDataDirectory();
-        String newPath = basePath.getAbsolutePath()+ File.pathSeparator+ "demoLib.js";
-        if(path.contains("lib/demoLib.js"))
-            return Uri.parse("file://"+ newPath);
-        //return null;
-        return super.remapUri(uri);
+        String result =  map2StaticFile(path);
+        if(result != null)
+            return Uri.parse(result);
+        return null;
+    }
+
+    private String map2StaticFile(String urlPath)
+    {
+        File rootPath = webView.getContext().getFilesDir();
+        String newPath = new File(rootPath, "demoLib.js").getAbsolutePath();
+        if(urlPath.contains("lib/demoLib.js"))
+            return "file://"+ newPath;
+        return null;
     }
 }
