@@ -1,7 +1,7 @@
 {
-  "name": "cordova-plugin-remap",
+  "name": "cordova-plugin-cachedResource",
   "version": "1.0.0",
-  "description": "Cordova Whitelist Plugin",
+  "description": "Cordova CachedResource Plugin",
   "cordova": {
     "platforms": [
       "android",
@@ -10,11 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lijie371/cordova-plugin-remap"
+    "url": "https://github.com/lijie371/cordova-plugin-cachedResource"
   },
   "keywords": [
     "cordova",
-    "remap",
+    "cachedResource",
     "ecosystem:cordova",
     "cordova-android",
     "cordova-ios"

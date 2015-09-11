@@ -19,12 +19,12 @@
 -->
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-           id="com.ataw.cordova.plugin.remap"
+           id="com.ataw.cordova.plugin.cachedResource"
       version="1.0.0">
-    <name>remap</name>
-    <description>cordova remap plugin</description>
+    <name>cachedResource</name>
+    <description>cordova cachedResource plugin</description>
     <license>Apache 2.0</license>
-    <keywords>cordova,remap</keywords>
+    <keywords>cordova,cachedResource</keywords>
 
     <engines>
       <engine name="cordova-android" version=">=4.0.0-dev" />
@@ -33,14 +33,16 @@
 
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="remap" >
-                <param name="android-package" value="com.ataw.cordova.plugin.RemapPlugin"/>
+            <feature name="cachedResource" >
+                <param name="android-package" value="com.ataw.cordova.plugin.CachedResourcePlugin"/>
                 <param name="onload" value="true" />
             </feature>
+            <preference name="cachedResourceUpdateUrl" value="" />
         </config-file>
 
-        <source-file src="src/android/RemapPlugin.java" target-dir="src/com/ataw/cordova/plugin" />
-
+        <source-file src="src/android/CachedResourcePlugin.java" target-dir="src/com/ataw/cordova/plugin" />
+        <source-file src="src/android/CachedResourceManager.java" target-dir="src/com/ataw/cordova/plugin" />
+        <source-file src="src/android/CacheResourceManifestConfig.java" target-dir="src/com/ataw/cordova/plugin" />
 <!--         <js-module src="whitelist.js" name="whitelist">
             <runs />
         </js-module> -->
